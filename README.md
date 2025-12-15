@@ -1,5 +1,7 @@
 # RL Racing GUI (rl-baselines3-zoo)
 
+![Version](https://img.shields.io/badge/version-0.1.0-1e88e5?style=for-the-badge)
+
 A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo). This tool provides a user-friendly interface for training, evaluating, and visualizing reinforcement learning agents, specifically tailored for racing environments like `donkeycar`.
 
 ![Sample GUI](assets/gui-sample.png)
@@ -8,6 +10,16 @@ A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-base
 > 
 > This GUI has been recently extracted from a larger monorepo and adapted to work as a standalone tool. It has not yet been fully tested in isolation. You may encounter bugs or missing dependencies. Please report any issues you find.
 > Some features (like Autoencoder training visualization) are currently placeholders or undergoing repair.
+
+> [!IMPORTANT]
+> Versioning follows Semantic Versioning (MAJOR.MINOR.PATCH). See the [changelog](CHANGELOG.md) for release notes and upgrade notes.
+
+### Quick Quality Checks
+> [!NOTE]
+> **Syntax lint (fast):** `python -m compileall gui`
+
+> [!TIP]
+> **Smoke test:** `python gui/main.py`
 
 ## Features
 - **Training Control**: Configure items like algorithm (PPO, SAC, TQC, TD3), hyperparameters, and environment settings.

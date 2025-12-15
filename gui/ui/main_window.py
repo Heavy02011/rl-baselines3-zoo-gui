@@ -36,10 +36,12 @@ TRACKED_PROCESSES = ["simulator", "training", "drive", "collect", "autoencoder",
 
 class MainWindow(QMainWindow):
     """Main window for the RL Racing Control Center."""
-    def __init__(self):
+    def __init__(self, gui_version: str = ""):
         """Initialize the main window."""
         super().__init__()
-        self.setWindowTitle("RL Racing Control Center")
+        self._gui_version = gui_version
+        title_suffix = f" v{gui_version}" if gui_version else ""
+        self.setWindowTitle(f"RL Racing Control Center{title_suffix}")
         self.setMinimumSize(1000, 700)
         self.setDockNestingEnabled(True)
 
@@ -418,7 +420,9 @@ class MainWindow(QMainWindow):
             "<li>RL training with TQC/SAC/PPO</li>"
             "<li>Training monitoring</li>"
             "</ul>"
-            "<p>Built with PyQt6</p>",
+            "<p>Built with PyQt6</p>"
+            f"<p><b>Version:</b> {self._gui_version or 'dev'}</p>"
+            "<p>Release notes: see CHANGELOG.md</p>",
         )
 
     def closeEvent(self, event: QCloseEvent) -> None:
