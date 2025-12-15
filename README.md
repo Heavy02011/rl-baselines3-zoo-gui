@@ -4,6 +4,11 @@ A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-base
 
 ![Sample GUI](assets/gui-sample.png)
 
+> **⚠️ Status: Alpha / Work in Progress**
+> 
+> This GUI has been recently extracted from a larger monorepo and adapted to work as a standalone tool. It has not yet been fully tested in isolation. You may encounter bugs or missing dependencies. Please report any issues you find.
+> Some features (like Autoencoder training visualization) are currently placeholders or undergoing repair.
+
 ## Features
 - **Training Control**: Configure items like algorithm (PPO, SAC, TQC, TD3), hyperparameters, and environment settings.
 - **Visual Feedback**: Real-time plotting of training metrics (Reward, Episode Length).
