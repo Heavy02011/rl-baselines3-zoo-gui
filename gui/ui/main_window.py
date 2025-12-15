@@ -406,7 +406,6 @@ class MainWindow(QMainWindow):
 
     def _show_about(self) -> None:
         """Show about dialog."""
-        version_line = f"<p><b>Version:</b> {self._app_version or 'dev'}</p>"
         QMessageBox.about(
             self,
             "About RL Racing Control Center",
@@ -422,7 +421,7 @@ class MainWindow(QMainWindow):
             "<li>Training monitoring</li>"
             "</ul>"
             "<p>Built with PyQt6</p>"
-            f"{version_line}"
+            f"<p><b>Version:</b> {self._app_version or 'dev'}</p>"
             '<p><a href="https://github.com/Heavy02011/rl-baselines3-zoo-gui/blob/main/CHANGELOG.md">'
             "Release notes</a></p>",
         )

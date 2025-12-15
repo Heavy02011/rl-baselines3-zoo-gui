@@ -14,15 +14,12 @@ A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-base
 > [!IMPORTANT]
 > Versioning follows Semantic Versioning (MAJOR.MINOR.PATCH). See the [changelog](CHANGELOG.md) for release notes and upgrade notes.
 
-### Quick Quality Checks (colored boxes)
-<div style="display:flex; gap:10px; flex-wrap:wrap;">
-  <div style="background:#e8f5e9; border-left:6px solid #2e7d32; padding:10px 12px; border-radius:6px;">
-    <strong>Syntax lint (fast):</strong> <code>python -m compileall gui</code>
-  </div>
-  <div style="background:#e3f2fd; border-left:6px solid #1565c0; padding:10px 12px; border-radius:6px;">
-    <strong>Smoke test:</strong> <code>python gui/main.py</code>
-  </div>
-</div>
+### Quick Quality Checks (colored callouts)
+> [!NOTE]
+> **Syntax lint (fast):** `python -m compileall gui`
+
+> [!TIP]
+> **Smoke test:** `python gui/main.py`
 
 ## Features
 - **Training Control**: Configure items like algorithm (PPO, SAC, TQC, TD3), hyperparameters, and environment settings.
