@@ -1,0 +1,63 @@
+# RL Racing GUI Configuration
+simulator:
+  exe_path: "/home/rainer/pr/github/DonkeySimLinux/donkey_sim.x86_64" # Path to DonkeyCar simulator executable (e.g., DonkeySim/donkey_sim.x86_64)
+  host: "localhost"
+  port: 9091
+  level: "mountain_track"
+
+  width: 890
+  height: 400
+  fullscreen: false
+  time_scale: 4.0
+environment:
+  env_name: "donkey-mountain-track-v0"
+  steer_left: -0.5
+  steer_right: 0.5
+  throttle_min: -0.2
+  throttle_max: 1.0
+  max_cte: 15.0
+  frame_skip: 1
+
+autoencoder:
+  #model_path: "/home/rainer/pr/github/rl-racing-2022-v2_race16/ae/ae_20251129circuit-launch_z32_1764519920.pkl"
+  model_path: "/home/rainer/pr/github/rl-racing-2022-v2_race16/ae/ae_mountain_pln_ur.pkl"
+  z_size: 32
+  input_dim: [120, 160, 3]
+
+training:
+  algorithm: "tqc"
+  total_timesteps: 2000000
+  save_freq: 15000
+  eval_freq: -1
+  tensorboard_log: "/tmp/stable-baselines/"
+  save_replay_buffer: true
+  hyperparams_file: "/home/rainer/pr/github/rl-racing-2022-v2_race16/hyperparams/tqc.yml"
+
+wandb:
+  enabled: true
+  entity: "parkinglotnerds"
+  project: "RL_race16_2025"
+
+data_collection:
+  output_dir: "./collected_data/circuit-launch/"
+  images_dir: "./collected_data/images/"
+  save_format: "jpg"
+
+paths:
+  models_dir: "./logs/"
+  racelines_dir: "./racelines/"
+gui:
+  geometry:
+    - 915
+    - 69
+    - 1000
+    - 1011
+manual_drive:
+  input_method: joystick
+  joystick_index: 0
+  # Window position [x, y] for the manual drive window
+  window_position:
+    - 10
+    - 500
+  steering_axis: 0
+  throttle_axis: 1

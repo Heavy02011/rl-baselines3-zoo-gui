@@ -1,61 +1,74 @@
 # RL Racing GUI (rl-baselines3-zoo)
 
-Standalone GUI extracted from the [`gui/` folder](https://github.com/Heavy02011/rl-racing-2022-v2_race16/tree/main/gui) of the RL Racing project. It is built on top of [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo) (`rl_zoo3`) for training and enjoying agents on the racing environment.
+A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo). This tool provides a user-friendly interface for training, evaluating, and visualizing reinforcement learning agents, specifically tailored for racing environments like `donkeycar`.
 
 ![Sample GUI](assets/gui-sample.png)
 
+## Features
+- **Training Control**: Configure items like algorithm (PPO, SAC, TQC, TD3), hyperparameters, and environment settings.
+- **Visual Feedback**: Real-time plotting of training metrics (Reward, Episode Length).
+- **Enjoy Mode**: Run trained agents with easy checkpoint selection.
+- **Process Management**: Start/Stop training and evaluation processes comfortably.
+
 ## Prerequisites
-- Python **3.10+**
-- System packages (recommended for Box2D and video support):
+- Python **3.8+**
+- System packages (for Box2D/PyGame support):
   - `ffmpeg`
   - `swig`
   - `cmake`
-- (Optional) NVIDIA CUDA/cuDNN if you want GPU acceleration for PyTorch.
-
-On Debian/Ubuntu you can install the system tools with:
+  
+On Debian/Ubuntu:
 ```bash
 sudo apt-get update
 sudo apt-get install -y ffmpeg swig cmake
 ```
 
-## Installation (uv)
-1) Clone this repository:
-```bash
-git clone https://github.com/Heavy02011/rl-baselines3-zoo-gui.git
-cd rl-baselines3-zoo-gui
-```
-2) Install [uv](https://github.com/astral-sh/uv) if you don't have it yet:
-```bash
-pip install --user uv
-```
-3) Create and activate a virtual environment with uv:
-```bash
-uv venv .venv
-source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
-```
-4) Install Python dependencies with uv:
-```bash
-uv pip install -r requirements.txt
-```
-5) (Optional) Pull racing assets/models from the original project if you need the tracks or pre-trained policies. Copy the full `gui/` contents from the upstream repo so that the scripts and assets (e.g., `gui.py` or `app.py`, `maps/`, `models/`, configs) sit in this folder:
-```bash
-git clone https://github.com/Heavy02011/rl-racing-2022-v2_race16.git
-cp -r rl-racing-2022-v2_race16/gui/* .
-```
+## Installation
+
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/Heavy02011/rl-baselines3-zoo-gui.git
+   cd rl-baselines3-zoo-gui
+   ```
+
+2. **Create a virtual environment (recommended)**:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Linux/Mac
+   # .venv\Scripts\activate  # Windows
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
-- Launch the GUI entrypoint that ships with the copied `gui/` files:
-  - `python gui.py` (main script used in the upstream GUI), or
-  - `streamlit run app.py` (if you prefer the Streamlit version).
-- To enjoy a trained RL agent with `rl_zoo3` and show the environment window:
-```bash
-python -m rl_zoo3.enjoy --algo ppo --env CarRacing-v2 --env-kwargs render_mode=human -f logs/
-```
-Replace `algo`, `env`, and the log folder with your own configuration or the assets copied from the RL Racing project.
 
-## Troubleshooting
-- Box2D installation issues: ensure `swig` and `cmake` are installed before `pip install -r requirements.txt`.
-- No render window: set `render_mode=human` in `--env-kwargs` (or the equivalent config) so the environment opens a GUI window.
+### Running the GUI
+Run the main entry point:
+```bash
+python gui/main.py
+```
+
+### Training
+- Navigate to the **RL Training** tab.
+- Select your Environment and Algorithm.
+- Click **Start Training**.
+- The GUI will execute `rl-baselines3-zoo` training. 
+  - If `scripts/train.py` exists in the repo root (e.g. if you copied this GUI into a Zoo clone), it will be used.
+  - Otherwise, it falls back to the installed `rl_zoo3.train` module.
+
+### Enjoy (Evaluation)
+- Navigate to the **Run Agent** tab.
+- Select the algorithm and environment.
+- Choose a trained model from the dropdown (scans `logs/` directory).
+- Click **Run Agent**.
+
+## Directory Structure
+- `gui/`: Application source code.
+- `logs/`: default location where training logs are stored (created automatically).
+- `hyperparams/`: (Optional) Custom hyperparameter configuration files.
 
 ## License
-This repository is released under the MIT License. See [LICENSE](LICENSE) for details.
+MIT License. See [LICENSE](LICENSE) for details.

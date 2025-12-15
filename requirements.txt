@@ -7,3 +7,5 @@ opencv-python>=4.8.1.78
 matplotlib>=3.7.0
 pandas>=2.0.0
 tensorboard>=2.14.0
+PyQt6>=6.4.0
+ruamel.yaml>=0.17.0
