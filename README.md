@@ -25,13 +25,35 @@ sudo apt-get install -y ffmpeg swig cmake
 
 ## Installation
 
+### Option A: Conda (Recommended)
+This approach automatically installs system dependencies like `swig` and `ffmpeg`.
+
 1. **Clone this repository**:
    ```bash
    git clone https://github.com/Heavy02011/rl-baselines3-zoo-gui.git
    cd rl-baselines3-zoo-gui
    ```
 
-2. **Create a virtual environment (recommended)**:
+2. **Create the environment**:
+   ```bash
+   conda env create -f environment.yml
+   ```
+
+3. **Activate the environment**:
+   ```bash
+   conda activate rl_zoo_gui
+   ```
+
+### Option B: PIP
+If you prefer standard python:
+
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/Heavy02011/rl-baselines3-zoo-gui.git
+   cd rl-baselines3-zoo-gui
+   ```
+
+2. **Create a virtual environment**:
    ```bash
    python -m venv .venv
    source .venv/bin/activate  # Linux/Mac
