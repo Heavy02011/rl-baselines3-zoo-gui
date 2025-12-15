@@ -14,7 +14,7 @@ A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-base
 > [!IMPORTANT]
 > Versioning follows Semantic Versioning (MAJOR.MINOR.PATCH). See the [changelog](CHANGELOG.md) for release notes and upgrade notes.
 
-### Quick Quality Checks (colored callouts)
+### Quick Quality Checks
 > [!NOTE]
 > **Syntax lint (fast):** `python -m compileall gui`
 

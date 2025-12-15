@@ -25,7 +25,7 @@ def main():
     # Import after QApplication is created
     from gui.ui.main_window import MainWindow
 
-    window = MainWindow(app_version=__version__)
+    window = MainWindow(gui_version=__version__)
     window.show()
 
     sys.exit(app.exec())
