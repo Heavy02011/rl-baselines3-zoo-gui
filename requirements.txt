@@ -1,0 +1,9 @@
+rl-zoo3>=2.3.0
+stable-baselines3>=2.3.0
+gymnasium[box2d]>=0.29.1
+pygame>=2.5.2
+pyglet>=2.0.10
+opencv-python>=4.8.1.78
+matplotlib>=3.7.0
+pandas>=2.0.0
+tensorboard>=2.14.0
