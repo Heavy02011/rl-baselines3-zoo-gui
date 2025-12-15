@@ -2,6 +2,8 @@
 
 Standalone GUI extracted from the [`gui/` folder](https://github.com/Heavy02011/rl-racing-2022-v2_race16/tree/main/gui) of the RL Racing project. It is built on top of [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo) (`rl_zoo3`) for training and enjoying agents on the racing environment.
 
+![Sample GUI](assets/gui-sample.png)
+
 ## Prerequisites
 - Python **3.10+**
 - System packages (recommended for Box2D and video support):
@@ -16,23 +18,26 @@ sudo apt-get update
 sudo apt-get install -y ffmpeg swig cmake
 ```
 
-## Installation
+## Installation (uv)
 1) Clone this repository:
 ```bash
 git clone https://github.com/Heavy02011/rl-baselines3-zoo-gui.git
 cd rl-baselines3-zoo-gui
 ```
-2) Create and activate a virtual environment:
+2) Install [uv](https://github.com/astral-sh/uv) if you don't have it yet:
 ```bash
-python -m venv .venv
+pip install --user uv
+```
+3) Create and activate a virtual environment with uv:
+```bash
+uv venv .venv
 source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
-python -m pip install --upgrade pip
 ```
-3) Install Python dependencies:
+4) Install Python dependencies with uv:
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
-4) (Optional) Pull racing assets/models from the original project if you need the tracks or pre-trained policies. Copy the full `gui/` contents from the upstream repo so that the scripts and assets (e.g., `gui.py` or `app.py`, `maps/`, `models/`, configs) sit in this folder:
+5) (Optional) Pull racing assets/models from the original project if you need the tracks or pre-trained policies. Copy the full `gui/` contents from the upstream repo so that the scripts and assets (e.g., `gui.py` or `app.py`, `maps/`, `models/`, configs) sit in this folder:
 ```bash
 git clone https://github.com/Heavy02011/rl-racing-2022-v2_race16.git
 cp -r rl-racing-2022-v2_race16/gui/* .
