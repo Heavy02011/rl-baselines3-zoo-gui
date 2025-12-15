@@ -6,6 +6,8 @@ import os
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from gui.version import __version__
+
 
 def main():
     """Launch the GUI application."""
@@ -17,12 +19,13 @@ def main():
 
     app = QApplication(sys.argv)
     app.setApplicationName("RL Racing Control Center")
+    app.setApplicationVersion(__version__)
     app.setOrganizationName("ParkingLotNerds")
 
     # Import after QApplication is created
     from gui.ui.main_window import MainWindow
 
-    window = MainWindow()
+    window = MainWindow(app_version=__version__)
     window.show()
 
     sys.exit(app.exec())

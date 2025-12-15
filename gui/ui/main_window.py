@@ -36,10 +36,12 @@ TRACKED_PROCESSES = ["simulator", "training", "drive", "collect", "autoencoder",
 
 class MainWindow(QMainWindow):
     """Main window for the RL Racing Control Center."""
-    def __init__(self):
+    def __init__(self, app_version: str = ""):
         """Initialize the main window."""
         super().__init__()
-        self.setWindowTitle("RL Racing Control Center")
+        self._app_version = app_version
+        title_suffix = f" v{app_version}" if app_version else ""
+        self.setWindowTitle(f"RL Racing Control Center{title_suffix}")
         self.setMinimumSize(1000, 700)
         self.setDockNestingEnabled(True)
 
@@ -404,6 +406,7 @@ class MainWindow(QMainWindow):
 
     def _show_about(self) -> None:
         """Show about dialog."""
+        version_line = f"<p><b>Version:</b> {self._app_version or 'dev'}</p>"
         QMessageBox.about(
             self,
             "About RL Racing Control Center",
@@ -418,7 +421,10 @@ class MainWindow(QMainWindow):
             "<li>RL training with TQC/SAC/PPO</li>"
             "<li>Training monitoring</li>"
             "</ul>"
-            "<p>Built with PyQt6</p>",
+            "<p>Built with PyQt6</p>"
+            f"{version_line}"
+            '<p><a href="https://github.com/Heavy02011/rl-baselines3-zoo-gui/blob/main/CHANGELOG.md">'
+            "Release notes</a></p>",
         )
 
     def closeEvent(self, event: QCloseEvent) -> None:
