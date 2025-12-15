@@ -32,16 +32,16 @@ python -m pip install --upgrade pip
 ```bash
 pip install -r requirements.txt
 ```
-4) (Optional) Pull racing assets/models from the original project if you need the tracks or pre-trained policies:
+4) (Optional) Pull racing assets/models from the original project if you need the tracks or pre-trained policies. Copy the full `gui/` contents from the upstream repo so that the scripts and assets (e.g., `gui.py` or `app.py`, `maps/`, `models/`, configs) sit in this folder:
 ```bash
 git clone https://github.com/Heavy02011/rl-racing-2022-v2_race16.git
-# copy the needed folders (e.g., maps/models) from rl-racing-2022-v2_race16/gui/ into this repo
+cp -r rl-racing-2022-v2_race16/gui/* .
 ```
 
 ## Usage
-- Launch the GUI entrypoint from this folder (for example):
-  - `python gui.py` (if the GUI is a Python script), or
-  - `streamlit run app.py` (if the GUI is Streamlit-based).
+- Launch the GUI entrypoint that ships with the copied `gui/` files:
+  - `python gui.py` (main script used in the upstream GUI), or
+  - `streamlit run app.py` (if you prefer the Streamlit version).
 - To enjoy a trained RL agent with `rl_zoo3` and show the environment window:
 ```bash
 python -m rl_zoo3.enjoy --algo ppo --env CarRacing-v2 --env-kwargs render_mode=human -f logs/
