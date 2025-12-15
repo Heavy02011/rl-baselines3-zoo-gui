@@ -22,7 +22,15 @@ from PyQt6.QtCore import Qt
 import cv2
 import numpy as np
 import glob
-from gym_donkeycar.autoencoder import load_ae, preprocess_image
+try:
+    from gym_donkeycar.autoencoder import load_ae, preprocess_image
+except ImportError:
+    # Fallback defaults to prevent crash on startup
+    def load_ae(path: str):
+         raise ImportError("gym_donkeycar.autoencoder module not found. Autoencoder features are unavailable.")
+
+    def preprocess_image(img, mode="RGB"):
+         return img
 
 from gui.core.process_manager import ProcessState
 from gui.ui.modules.base_module import BaseModule
