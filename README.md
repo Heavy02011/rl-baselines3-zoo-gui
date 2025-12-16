@@ -23,6 +23,9 @@ A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-base
 > [!TIP]
 > **Smoke test:** `python gui/main.py`
 
+> [!NOTE]
+> The GUI is standalone: `requirements.txt` installs `rl-zoo3` and `stable-baselines3`, and CI verifies `python -m rl_zoo3.train --help` works without needing a separate `rl-baselines3-zoo` clone.
+
 ## Features
 - **Training Control**: Configure items like algorithm (PPO, SAC, TQC, TD3), hyperparameters, and environment settings.
 - **Visual Feedback**: Real-time plotting of training metrics (Reward, Episode Length).
