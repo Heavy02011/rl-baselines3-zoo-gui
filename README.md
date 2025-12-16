@@ -4,7 +4,7 @@
 
 A standalone PyQt6 GUI for [RL Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo). This tool provides a user-friendly interface for training, evaluating, and visualizing reinforcement learning agents, specifically tailored for racing environments like `donkeycar`.
 
-*coded with the helpof github/copilot using GPT-5.1.-CODEX-MAX and google/antigravity using gemini3-low*
+*coded with the help of github/copilot using GPT-5.1.-CODEX-MAX and google/antigravity using gemini3-low*
 
 ![Sample GUI](assets/gui-sample.png)
 
